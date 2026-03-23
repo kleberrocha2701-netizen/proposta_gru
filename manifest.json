@@ -2,7 +2,7 @@
   "name": "App Cidadão Guarulhos",
   "short_name": "Cidadão GRU",
   "description": "Hub digital de serviços municipais da Prefeitura de Guarulhos",
-  "start_url": "/index.html",
+  "start_url": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0b2059",
@@ -26,17 +26,17 @@
   "shortcuts": [
     {
       "name": "IPTU",
-      "url": "/?view=iptu",
+      "url": "./?view=iptu",
       "description": "Consultar IPTU"
     },
     {
       "name": "Saúde",
-      "url": "/?view=saude",
+      "url": "./?view=saude",
       "description": "Agendamento UBS"
     },
     {
       "name": "Ouvidoria",
-      "url": "/?view=ouvidoria",
+      "url": "./?view=ouvidoria",
       "description": "Fale com a Prefeitura"
     }
   ]
