@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1040a8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Cidadão GRU">
+<title>App Cidadão · Guarulhos</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="./css/global.css">
+
+</head>
+<body>
+
+<!-- ══ SPLASH SCREEN ══ -->
+<div id="splash">
+  <div class="splash-bg-circle"></div>
+  <div class="splash-bg-circle"></div>
+  <div class="splash-bg-circle"></div>
+
+  <div class="splash-logo-wrap">
+    <div class="splash-icon-ring">
+      <img class="logo-splash" src="./assets/LOGO_HORIZONTAL_B_CIDADE_GUARULHOS_CONTORNO.png" />
+      <div class="splash-dot"></div>
+    </div>
+    <div class="splash-wordmark">
+      <div class="app-name">Cidadão GRU</div>
+      <div class="app-sub">Serviços Municipais Digitais</div>
+    </div>
+  </div>
+
+  <div class="splash-city">
+    <i class="fa-solid fa-location-dot"></i>
+    <span>Guarulhos · SP</span>
+  </div>
+
+  <div class="splash-loader">
+    <div class="splash-loader-bar"></div>
+  </div>
+
+  <div class="splash-version">v1.0.0-beta · Prefeitura Municipal</div>
+</div>
+
+<div id="app">
+
+  <!-- ══ HOME ══ -->
+  <div class="view active" id="v-home">
+    <div class="vbody">
+      <div class="hero fu">
+        <div class="hero-row1">
+          <div>
+            <div class="hero-greet">Bom dia <i class="fa-solid fa-hand-wave" style="font-size:12px;"></i></div>
+            <div class="hero-name">João Silva</div>
+          </div>
+
+          <di>
+            <img width="100px" src="./assets/LOGO_HORIZONTAL_B_CIDADE_GUARULHOS_CONTORNO.png" />
+          </di>
+
+          <div class="hero-notif-btn" onclick="nav('v-notif')">
+            <i class="fa-solid fa-bell"></i>
+            <div class="hero-notif-pip"></div>
+          </div>
+        </div>
+        <div class="hero-iptu fu d1" onclick="nav('v-iptu')">
+          <div>
+            <div class="hi-label">IPTU 2025 · Parcela atual</div>
+            <div class="hi-val">R$ 342,80</div>
+          </div>
+          <div class="hi-badge">Vence em 3 dias</div>
+        </div>
+      </div>
+
+      <div class="section-hdr fu d2">Acesso Rápido <span class="see-all" onclick="nav('v-servicos')">Ver todos →</span></div>
+      <div class="qgrid fu d2">
+        <div class="qi" onclick="nav('v-iptu')"><div class="qi-ico ic-blue"><i class="fa-solid fa-file-invoice-dollar" style="color:#1040a8;"></i></div><div class="qi-lbl">IPTU</div></div>
+        <div class="qi" onclick="nav('v-saude')"><div class="qi-ico ic-green"><i class="fa-solid fa-hospital" style="color:#065f46;"></i></div><div class="qi-lbl">Saúde</div></div>
+        <div class="qi" onclick="nav('v-servicos')"><div class="qi-ico ic-sky"><i class="fa-solid fa-bus" style="color:#0369a1;"></i></div><div class="qi-lbl">Transporte</div></div>
+        <div class="qi" onclick="nav('v-ouvidoria')"><div class="qi-ico ic-orange"><i class="fa-solid fa-bullhorn" style="color:#92400e;"></i></div><div class="qi-lbl">Ouvidoria</div></div>
+        <div class="qi" onclick="nav('v-servicos')"><div class="qi-ico ic-purple"><i class="fa-solid fa-building-columns" style="color:#5b21b6;"></i></div><div class="qi-lbl">Alvarás</div></div>
+        <div class="qi" onclick="nav('v-servicos')"><div class="qi-ico ic-red"><i class="fa-solid fa-street-view" style="color:#991b1b;"></i></div><div class="qi-lbl">Iluminação</div></div>
+        <div class="qi" onclick="nav('v-servicos')"><div class="qi-ico ic-teal"><i class="fa-solid fa-tree" style="color:#065f46;"></i></div><div class="qi-lbl">Poda</div></div>
+        <div class="qi" onclick="nav('v-servicos')"><div class="qi-ico ic-indigo"><i class="fa-solid fa-grip" style="color:#3730a3;"></i></div><div class="qi-lbl">Mais</div></div>
+      </div>
+
+      <div style="padding:20px 0 0;" class="fu d3">
+        <div class="banner" onclick="nav('v-saude')">
+          <div class="banner-left">
+            <p>Nova funcionalidade</p>
+            <strong>Agende consultas na UBS</strong>
+          </div>
+          <div class="banner-cta">Acessar</div>
+        </div>
+      </div>
+
+      <div class="section-hdr fu d4">Atualizações <span class="see-all" onclick="nav('v-notif')">Ver todas →</span></div>
+      <div class="notif-mini fu d4">
+        <div class="nm-item" onclick="nav('v-iptu')">
+          <div class="nm-dot" style="background:var(--orange);"></div>
+          <div class="nm-ico ic-orange"><i class="fa-solid fa-money-bill-wave" style="color:#92400e;"></i></div>
+          <div class="nm-body"><p>Boleto IPTU disponível</p><span>há 2 horas</span></div>
+          <div class="nm-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="nm-item" onclick="nav('v-saude')">
+          <div class="nm-dot" style="background:var(--green);"></div>
+          <div class="nm-ico ic-green"><i class="fa-solid fa-circle-check" style="color:#065f46;"></i></div>
+          <div class="nm-body"><p>Consulta confirmada – UBS Centro</p><span>há 1 dia</span></div>
+          <div class="nm-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="nm-item" onclick="nav('v-ouvidoria')">
+          <div class="nm-dot" style="background:var(--b400);"></div>
+          <div class="nm-ico ic-blue"><i class="fa-solid fa-clipboard-list" style="color:#1040a8;"></i></div>
+          <div class="nm-body"><p>Protocolo #GRU-2025-04812 atualizado</p><span>há 2 dias</span></div>
+          <div class="nm-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+      <div style="height:12px;"></div>
+    </div>
+  </div>
+
+  <!-- ══ SERVIÇOS ══ -->
+  <div class="view" id="v-servicos">
+    <div class="vbody">
+      <div class="topbar" style="background:var(--white);border-bottom:1px solid var(--g100);">
+        <div>
+          <div class="topbar-title">Serviços</div>
+          <div class="topbar-sub">Tudo da Prefeitura, num só lugar</div>
+        </div>
+      </div>
+      <div class="searchbar">
+        <i class="fa-solid fa-magnifying-glass" style="color:var(--g400);font-size:14px;"></i>
+        <input type="text" placeholder="Buscar serviço...">
+      </div>
+      <div class="cat-scroll">
+        <div class="cat on">Todos</div>
+        <div class="cat">Tributos</div>
+        <div class="cat">Saúde</div>
+        <div class="cat">Educação</div>
+        <div class="cat">Obras</div>
+        <div class="cat">Ambiente</div>
+      </div>
+      <div style="height:14px;"></div>
+      <div class="slist">
+        <div class="srow" onclick="nav('v-iptu')">
+          <div class="srow-ico ic-blue"><i class="fa-solid fa-file-invoice-dollar" style="color:#1040a8;"></i></div>
+          <div class="srow-info"><h3>IPTU – 2ª Via e Parcelamento</h3><p>Emita boletos, consulte débitos</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="nav('v-saude')">
+          <div class="srow-ico ic-green"><i class="fa-solid fa-hospital" style="color:#065f46;"></i></div>
+          <div class="srow-info"><h3>Saúde – Agendamento UBS</h3><p>Consultas, exames e vacinas</p></div>
+          <div class="new-badge">Novo</div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="nav('v-ouvidoria')">
+          <div class="srow-ico ic-orange"><i class="fa-solid fa-bullhorn" style="color:#92400e;"></i></div>
+          <div class="srow-info"><h3>Ouvidoria</h3><p>Sugestões, reclamações e elogios</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="toast('Em breve disponível')">
+          <div class="srow-ico ic-sky"><i class="fa-solid fa-bus" style="color:#0369a1;"></i></div>
+          <div class="srow-info"><h3>Transporte Público</h3><p>Rotas, horários e passe livre</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="toast('Em breve disponível')">
+          <div class="srow-ico ic-purple"><i class="fa-solid fa-building-columns" style="color:#5b21b6;"></i></div>
+          <div class="srow-info"><h3>Licenças e Alvarás</h3><p>Solicite e acompanhe aprovações</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="toast('Em breve disponível')">
+          <div class="srow-ico ic-red"><i class="fa-solid fa-lightbulb" style="color:#991b1b;"></i></div>
+          <div class="srow-info"><h3>Iluminação Pública</h3><p>Reporte postes com defeito</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="toast('Em breve disponível')">
+          <div class="srow-ico ic-teal"><i class="fa-solid fa-tree" style="color:#065f46;"></i></div>
+          <div class="srow-info"><h3>Poda e Meio Ambiente</h3><p>Solicite poda de árvores</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="toast('Em breve disponível')">
+          <div class="srow-ico ic-pink"><i class="fa-solid fa-trash-can" style="color:#9d174d;"></i></div>
+          <div class="srow-info"><h3>Coleta de Lixo</h3><p>Calendário e coleta especial</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="toast('Em breve disponível')">
+          <div class="srow-ico ic-indigo"><i class="fa-solid fa-graduation-cap" style="color:#3730a3;"></i></div>
+          <div class="srow-info"><h3>Educação – Vagas e Matrículas</h3><p>Escolas municipais</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+      <div style="height:12px;"></div>
+    </div>
+  </div>
+
+  <!-- ══ IPTU ══ -->
+  <div class="view" id="v-iptu">
+    <div class="vbody">
+      <div class="dhero">
+        <div class="back-btn white fu" onclick="back()"><i class="fa-solid fa-chevron-left"></i> Voltar</div>
+        <div class="dhero-icon fu d1"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        <h1 class="fu d1">IPTU 2025</h1>
+        <p class="fu d2">Imposto Predial e Territorial Urbano</p>
+      </div>
+      <div class="icard fu d1">
+        <div class="icard-title">Dados do Imóvel</div>
+        <div class="irow"><span class="irow-lbl">Contribuinte</span><span class="irow-val">João A. Silva</span></div>
+        <div class="irow"><span class="irow-lbl">Inscrição</span><span class="irow-val">04.823.001.0001</span></div>
+        <div class="irow"><span class="irow-lbl">Endereço</span><span class="irow-val">R. das Flores, 142</span></div>
+        <div class="irow"><span class="irow-lbl">Valor total 2025</span><span class="irow-val" style="color:var(--b700);">R$ 1.028,40</span></div>
+        <div class="irow"><span class="irow-lbl">Situação</span><span class="pill pill-orange"><i class="fa-solid fa-triangle-exclamation"></i> Parcela em aberto</span></div>
+      </div>
+      <div class="icard fu d2" style="margin-top:12px;">
+        <div class="icard-title">Parcelas 2025</div>
+        <div class="irow"><span class="irow-lbl">Jan – R$ 342,80</span><span class="pill pill-green"><i class="fa-solid fa-check"></i> Pago</span></div>
+        <div class="irow"><span class="irow-lbl">Fev – R$ 342,80</span><span class="pill pill-green"><i class="fa-solid fa-check"></i> Pago</span></div>
+        <div class="irow"><span class="irow-lbl">Mar – R$ 342,80</span><span class="pill pill-orange">Vence 31/03</span></div>
+        <div class="irow"><span class="irow-lbl">Abr – R$ 342,80</span><span class="pill pill-blue">A vencer</span></div>
+      </div>
+      <div class="btnrow fu d3">
+        <button class="btn-primary" onclick="toast('Boleto gerado com sucesso!')"><i class="fa-solid fa-download"></i> Emitir Boleto – R$ 342,80</button>
+        <button class="btn-secondary" onclick="toast('Carregando histórico...')"><i class="fa-solid fa-clock-rotate-left"></i> Histórico completo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SAÚDE ══ -->
+  <div class="view" id="v-saude">
+    <div class="vbody">
+      <div class="dhero">
+        <div class="back-btn white fu" onclick="back()"><i class="fa-solid fa-chevron-left"></i> Voltar</div>
+        <div class="dhero-icon fu d1"><i class="fa-solid fa-hospital"></i></div>
+        <h1 class="fu d1">Saúde</h1>
+        <p class="fu d2">Agendamentos e UBS de Guarulhos</p>
+      </div>
+      <div class="icard fu d1">
+        <div class="icard-title">Próxima consulta</div>
+        <div class="irow"><span class="irow-lbl">Data</span><span class="irow-val">28/03/2025 · 10:30h</span></div>
+        <div class="irow"><span class="irow-lbl">UBS</span><span class="irow-val">UBS Centro</span></div>
+        <div class="irow"><span class="irow-lbl">Especialidade</span><span class="irow-val">Clínico Geral</span></div>
+        <div class="irow"><span class="irow-lbl">Status</span><span class="pill pill-green"><i class="fa-solid fa-check"></i> Confirmada</span></div>
+      </div>
+      <div class="section-hdr fu d2" style="padding-top:20px;">Agendar nova consulta</div>
+      <div class="slist fu d2" style="gap:8px;">
+        <div class="srow" onclick="toast('Selecionando horários...')">
+          <div class="srow-ico ic-green"><i class="fa-solid fa-user-doctor" style="color:#065f46;"></i></div>
+          <div class="srow-info"><h3>Clínico Geral</h3><p>Disponível – UBS Centro</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="toast('Selecionando horários...')">
+          <div class="srow-ico ic-pink"><i class="fa-solid fa-baby" style="color:#9d174d;"></i></div>
+          <div class="srow-info"><h3>Pediatria</h3><p>Disponível – UBS Jardim Presidente</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="toast('Ver pontos de vacinação...')">
+          <div class="srow-ico ic-purple"><i class="fa-solid fa-syringe" style="color:#5b21b6;"></i></div>
+          <div class="srow-info"><h3>Vacinação</h3><p>Sem agendamento – ver postos</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="srow" onclick="toast('Selecionando horários...')">
+          <div class="srow-ico ic-indigo"><i class="fa-solid fa-tooth" style="color:#3730a3;"></i></div>
+          <div class="srow-info"><h3>Odontologia</h3><p>Disponível – UBS Pimentas</p></div>
+          <div class="srow-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+      <div class="btnrow fu d3">
+        <button class="btn-primary" onclick="toast('Abrindo agenda...')"><i class="fa-solid fa-calendar-plus"></i> Novo Agendamento</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ OUVIDORIA ══ -->
+  <div class="view" id="v-ouvidoria">
+    <div class="vbody">
+      <div class="dhero">
+        <div class="back-btn white fu" onclick="back()"><i class="fa-solid fa-chevron-left"></i> Voltar</div>
+        <div class="dhero-icon fu d1"><i class="fa-solid fa-bullhorn"></i></div>
+        <h1 class="fu d1">Ouvidoria</h1>
+        <p class="fu d2">Fale diretamente com a Prefeitura</p>
+      </div>
+      <div style="height:16px;"></div>
+      <div class="fgroup fu d1">
+        <label class="flabel">Tipo de manifestação</label>
+        <div class="tag-row">
+          <div class="tagc on" onclick="pickTag(this)">Reclamação</div>
+          <div class="tagc" onclick="pickTag(this)">Sugestão</div>
+          <div class="tagc" onclick="pickTag(this)">Elogio</div>
+          <div class="tagc" onclick="pickTag(this)">Denúncia</div>
+        </div>
+      </div>
+      <div class="fgroup fu d2">
+        <label class="flabel">Secretaria</label>
+        <select class="finput">
+          <option value="">Selecione a secretaria...</option>
+          <option>Obras e Infraestrutura</option>
+          <option>Saúde</option>
+          <option>Educação</option>
+          <option>Meio Ambiente</option>
+          <option>Trânsito</option>
+          <option>Serviços Urbanos</option>
+        </select>
+      </div>
+      <div class="fgroup fu d2">
+        <label class="flabel">Assunto</label>
+        <input class="finput" type="text" placeholder="Descreva brevemente o assunto...">
+      </div>
+      <div class="fgroup fu d3">
+        <label class="flabel">Descrição</label>
+        <textarea class="finput" placeholder="Detalhe sua manifestação..."></textarea>
+      </div>
+      <div class="btnrow fu d3">
+        <button class="btn-primary" onclick="toast('Manifestação enviada! Protocolo gerado.')"><i class="fa-solid fa-paper-plane"></i> Enviar Manifestação</button>
+      </div>
+      <div class="sep"></div>
+      <div class="section-hdr" style="padding-top:16px;">Acompanhar protocolo</div>
+      <div style="padding:0 20px 16px;">
+        <div class="srow" onclick="toast('Abrindo protocolo #GRU-2025-04812')">
+          <div class="srow-ico ic-blue"><i class="fa-solid fa-clipboard-list" style="color:#1040a8;"></i></div>
+          <div class="srow-info"><h3>#GRU-2025-04812</h3><p>Buraco – Av. Salgado Filho</p></div>
+          <span class="pill pill-orange" style="font-size:10px;">Em análise</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ NOTIFICAÇÕES ══ -->
+  <div class="view" id="v-notif">
+    <div class="vbody">
+      <div class="topbar" style="background:var(--white);border-bottom:1px solid var(--g100);">
+        <div class="topbar-title">Notificações</div>
+        <div class="topbar-action" onclick="toast('Todas marcadas como lidas')">Limpar</div>
+      </div>
+      <div class="nfull">
+        <div class="nfull-item unread" onclick="nav('v-iptu')">
+          <div class="nfi-ico ic-orange"><i class="fa-solid fa-money-bill-wave" style="color:#92400e;"></i></div>
+          <div class="nfi-body">
+            <div class="nfi-title">Boleto IPTU disponível</div>
+            <div class="nfi-desc">Parcela de março já pode ser emitida. Vence em 31/03.</div>
+            <div class="nfi-time">Hoje · 09:15</div>
+          </div>
+          <div class="udot"></div>
+        </div>
+        <div class="nfull-item unread" onclick="nav('v-saude')">
+          <div class="nfi-ico ic-green"><i class="fa-solid fa-circle-check" style="color:#065f46;"></i></div>
+          <div class="nfi-body">
+            <div class="nfi-title">Consulta confirmada</div>
+            <div class="nfi-desc">UBS Centro – 28/03 às 10h30. Leve seu cartão SUS.</div>
+            <div class="nfi-time">Ontem · 14:22</div>
+          </div>
+          <div class="udot"></div>
+        </div>
+        <div class="nfull-item" onclick="nav('v-ouvidoria')">
+          <div class="nfi-ico ic-blue"><i class="fa-solid fa-clipboard-list" style="color:#1040a8;"></i></div>
+          <div class="nfi-body">
+            <div class="nfi-title">Protocolo em análise</div>
+            <div class="nfi-desc">Sua solicitação #GRU-2025-04812 foi recebida e está sendo analisada.</div>
+            <div class="nfi-time">22/03 · 11:00</div>
+          </div>
+        </div>
+        <div class="nfull-item">
+          <div class="nfi-ico ic-teal"><i class="fa-solid fa-tree" style="color:#065f46;"></i></div>
+          <div class="nfi-body">
+            <div class="nfi-title">Nova funcionalidade</div>
+            <div class="nfi-desc">Agora você pode solicitar poda de árvores pelo app!</div>
+            <div class="nfi-time">20/03 · 08:00</div>
+          </div>
+        </div>
+        <div class="nfull-item">
+          <div class="nfi-ico ic-purple"><i class="fa-solid fa-landmark" style="color:#5b21b6;"></i></div>
+          <div class="nfi-body">
+            <div class="nfi-title">Bem-vindo ao App Cidadão</div>
+            <div class="nfi-desc">Seu cadastro foi verificado com sucesso via Gov.br.</div>
+            <div class="nfi-time">15/03 · 10:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PERFIL ══ -->
+  <div class="view" id="v-perfil">
+    <div class="vbody">
+      <div class="profile-hero fu">
+        <div class="avatar"><i class="fa-solid fa-user"></i></div>
+        <h2>João Antônio Silva</h2>
+        <div class="profile-cpf">CPF: •••.456.789-••</div>
+        <div class="profile-chips">
+          <div class="pchip"><i class="fa-solid fa-shield-check"></i> Verificado</div>
+          <div class="pchip">Gov.br</div>
+        </div>
+      </div>
+      <div style="height:14px;"></div>
+      <div class="mlist fu d1">
+        <div class="mitem" onclick="toast('Carregando protocolos...')">
+          <div class="mico ic-blue"><i class="fa-solid fa-clipboard-list" style="color:#1040a8;"></i></div>
+          <div class="mitem-lbl">Meus protocolos</div>
+          <div class="mbadge">2</div>
+          <div class="mitem-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="mitem" onclick="nav('v-iptu')">
+          <div class="mico ic-orange"><i class="fa-solid fa-file-invoice-dollar" style="color:#92400e;"></i></div>
+          <div class="mitem-lbl">Meus tributos</div>
+          <div class="mitem-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="mitem" onclick="nav('v-saude')">
+          <div class="mico ic-green"><i class="fa-solid fa-hospital" style="color:#065f46;"></i></div>
+          <div class="mitem-lbl">Minhas consultas</div>
+          <div class="mitem-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="mitem" onclick="toast('Abrindo preferências...')">
+          <div class="mico" style="background:#ede9fe;"><i class="fa-solid fa-bell" style="color:#5b21b6;"></i></div>
+          <div class="mitem-lbl">Notificações</div>
+          <div class="mitem-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+      <div class="sep" style="margin:12px 0;"></div>
+      <div class="mlist fu d2">
+        <div class="mitem" onclick="toast('Abrindo configurações...')">
+          <div class="mico ic-indigo"><i class="fa-solid fa-lock" style="color:#3730a3;"></i></div>
+          <div class="mitem-lbl">Segurança e privacidade</div>
+          <div class="mitem-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="mitem" onclick="toast('Central de ajuda...')">
+          <div class="mico" style="background:var(--g100);"><i class="fa-solid fa-circle-question" style="color:var(--g500);"></i></div>
+          <div class="mitem-lbl">Ajuda e suporte</div>
+          <div class="mitem-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="mitem" onclick="toast('Até logo!')">
+          <div class="mico" style="background:var(--red-light);"><i class="fa-solid fa-right-from-bracket" style="color:var(--red);"></i></div>
+          <div class="mitem-lbl" style="color:var(--red);">Sair da conta</div>
+          <div class="mitem-arr"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+      <div style="text-align:center;padding:24px 20px;color:var(--g400);font-size:11px;line-height:1.6;">
+        App Cidadão Guarulhos · v1.0.0-beta<br>
+        Prefeitura Municipal de Guarulhos · 2025<br>
+        <span style="color:var(--b400);font-weight:700;">Desenvolvido pelos servidores municipais</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM NAV ══ -->
+  <nav id="bnav">
+    <div class="ni active" id="ni-home" onclick="nav('v-home')">
+      <div class="ni-icon"><i class="fa-solid fa-house"></i></div>
+      <div class="ni-lbl">Início</div>
+    </div>
+    <div class="ni" id="ni-servicos" onclick="nav('v-servicos')">
+      <div class="ni-icon"><i class="fa-solid fa-bolt"></i></div>
+      <div class="ni-lbl">Serviços</div>
+    </div>
+    <div class="ni has-badge" id="ni-notif" onclick="nav('v-notif')">
+      <div class="ni-pip"></div>
+      <div class="ni-icon"><i class="fa-solid fa-bell"></i></div>
+      <div class="ni-lbl">Alertas</div>
+    </div>
+    <div class="ni" id="ni-perfil" onclick="nav('v-perfil')">
+      <div class="ni-icon"><i class="fa-solid fa-user"></i></div>
+      <div class="ni-lbl">Perfil</div>
+    </div>
+  </nav>
+
+</div><!-- /app -->
+
+<div id="toast"></div>
+
+<script>
+// ── SPLASH ──
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const splash = document.getElementById('splash');
+    splash.classList.add('hide');
+    setTimeout(() => { splash.style.display = 'none'; }, 650);
+  }, 2800);
+});
+
+// ── NAVIGATION ──
+const history = ['v-home'];
+const navMap = {'v-home':'ni-home','v-servicos':'ni-servicos','v-notif':'ni-notif','v-perfil':'ni-perfil'};
+const bnav = document.getElementById('bnav');
+const mainViews = new Set(['v-home','v-servicos','v-notif','v-perfil']);
+
+function nav(id) {
+  const cur = document.querySelector('.view.active');
+  if(!cur || cur.id === id) return;
+  cur.classList.add('out');
+  setTimeout(()=>{ cur.classList.remove('active','out'); }, 300);
+  const next = document.getElementById(id);
+  next.classList.add('active');
+  const vb = next.querySelector('.vbody');
+  if(vb) vb.scrollTop = 0;
+  next.querySelectorAll('.fu').forEach(el=>{
+    el.style.animation='none';
+    requestAnimationFrame(()=>{ el.style.animation=''; });
+  });
+  history.push(id);
+  bnav.style.display = mainViews.has(id) ? 'flex' : 'none';
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
+  if(navMap[id]) document.getElementById(navMap[id]).classList.add('active');
+}
+
+function back() {
+  if(history.length<=1) return;
+  history.pop();
+  const prev = history[history.length-1];
+  const cur = document.querySelector('.view.active');
+  if(cur){ cur.classList.add('out'); setTimeout(()=>cur.classList.remove('active','out'),300); }
+  const next = document.getElementById(prev);
+  next.classList.add('active');
+  const vb = next.querySelector('.vbody');
+  if(vb) vb.scrollTop = 0;
+  bnav.style.display = mainViews.has(prev) ? 'flex' : 'none';
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
+  if(navMap[prev]) document.getElementById(navMap[prev]).classList.add('active');
+}
+
+// ── TOAST ──
+let toastT;
+function toast(msg){
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastT);
+  toastT = setTimeout(()=>el.classList.remove('show'),2400);
+}
+
+// ── FORM TAGS ──
+function pickTag(el){
+  el.closest('.tag-row').querySelectorAll('.tagc').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
+}
+
+document.querySelectorAll('.cat').forEach(c=>{
+  c.addEventListener('click',()=>{
+    c.closest('.cat-scroll').querySelectorAll('.cat').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on');
+  });
+});
+
+const urlView = new URLSearchParams(location.search).get('view');
+if(urlView && document.getElementById('v-'+urlView)) nav('v-'+urlView);
+</script>
+</body>
+</html>
+
+<script>
+  // Verifica se o navegador suporta Service Workers
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(registration => {
+          console.log('SW registrado com sucesso em: ', registration.scope);
+        })
+        .catch(error => {
+          console.log('Falha ao registrar o SW: ', error);
+        });
+    });
+  }
+</script>
